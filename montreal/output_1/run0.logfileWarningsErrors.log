@@ -1,0 +1,8 @@
+2023-08-20T23:31:16,713  WARN XY2LinksForFacilities:51 There is no link for at least a facility. Assigning links for such facilities from coords.
+2023-08-20T23:31:16,713  WARN XY2LinksForFacilities:52  This message given only once.
+2023-08-20T23:31:16,770  WARN PrepareForSimImpl:229 'usePersonIdForMissingVehicleId' is deprecated. It will be removed soon.
+2023-08-20T23:31:40,760  WARN TimeAllocationMutatorModule:128 Please be aware that durations of activities now can mutate freely and possibly become negative.This might be a problem if you have 
+a) short activities that are only provided with duration and not with endtime  AND
+b) agents with only one or two initial plans.
+This can have impact on scoring and maybe even on qsim execution. It is recommended to set affectingDuration=false for such set up.
+2023-08-20T23:31:40,765  WARN ExpBetaPlanChanger:102 Would make sense to revise this once more.  See comments in code.  kai, nov08

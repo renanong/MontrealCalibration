@@ -1,0 +1,14 @@
+pattern	0+	5+	10+	15+	20+	25+	30+	35+	40+	45+	50+	55+	60+
+home---pt interaction	1334	4615	2929	2721	1692	1289	819	577	367	124	147	27	7
+home---secondary	308	131	123	180	206	224	208	210	193	152	129	122	624
+home---work	6004	6562	2806	1536	1115	1204	506	394	363	339	253	271	1330
+pt interaction---home	2	4	2	4	4	0	0	0	0	0	0	0	0
+pt interaction---pt interaction	1418	2109	236	89	67	5	2	1	17	25	0	1	463
+pt interaction---secondary	40	59	31	28	52	33	11	0	2	0	0	0	0
+pt interaction---work	547	883	542	478	486	341	94	5	2	2	3	0	0
+secondary---home	55	79	108	165	186	210	201	198	181	149	123	107	533
+secondary---pt interaction	69	80	43	35	60	43	15	1	2	1	1	0	0
+work---home	114	99	149	222	333	355	365	338	330	311	214	240	873
+work---pt interaction	567	899	544	456	530	334	100	4	2	3	3	0	0
+
+average leg duration: 1666.8295026469075 seconds = 00:27:46
