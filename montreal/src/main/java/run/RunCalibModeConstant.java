@@ -21,6 +21,7 @@ import org.matsim.api.core.v01.population.Person;
 import org.matsim.api.core.v01.population.Plan;
 import org.matsim.api.core.v01.population.PlanElement;
 import org.matsim.api.core.v01.population.Population;
+import org.matsim.contrib.analysis.kai.KaiAnalysisListener.Module;
 import org.matsim.contrib.ev.EvModule;
 import org.matsim.core.config.Config;
 import org.matsim.core.config.ConfigUtils;
@@ -149,11 +150,11 @@ public final class RunCalibModeConstant implements Callable<Integer> {
     double BikeOwnPerDay = 0;
     double SharedCarSubPerDay = 0.00;
     
-    double UnknownCarParam = 0.0;
-    double UnknownPtParam = 0.0;
+    double UnknownCarParam = 20.0;
+    double UnknownPtParam = 15.0;
     double UnknownBikeParam = 0.0;
     double UnknownSharedCarParam = 0.0;
-    double UnknownWalkParam = -15.0;
+    double UnknownWalkParam = 0.0;
     
     
  	config.planCalcScore().getOrCreateModeParams("car").setConstant(UnknownCarParam + CarOwnPerDay + CarConst); 
@@ -164,6 +165,8 @@ public final class RunCalibModeConstant implements Callable<Integer> {
     
     //ParamReader pReader = new ParamReader(paramFile);
     //config = pReader.SetParamToConfig(config, pReader.getInitialParam());
+ 	
+ 	//Installing carsharing module
  	
  	
  	
