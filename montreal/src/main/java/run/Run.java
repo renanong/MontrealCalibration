@@ -44,37 +44,37 @@ public final class Run implements Callable<Integer> {
    
   private static final Logger log = LogManager.getLogger(Run.class);
   
-  @Option(names = {"--config"}, description = {"Optional Path to config file to load."}, defaultValue = "config.xml")
+  @Option(names = {"--config"}, description = {"Optional Path to config file to load."}, defaultValue = "D:/Work/MATSim Project/MATSim scenarios/montreal_1p/config_calibrated.xml")
   private String config;
   
-  @Option(names = {"--plan"}, description = {"Optional Path to plan file to load."}, defaultValue = "prepared_population.xml.gz")
+  @Option(names = {"--plan"}, description = {"Optional Path to plan file to load."}, defaultValue = "D:/Work/MATSim Project/MATSim scenarios/montreal_1p/prepared_population.xml.gz")
   private String planFile;
   
-  @Option(names = {"--network"}, description = {"Optional Path to network file to load."}, defaultValue = "montreal_network.xml.gz")
+  @Option(names = {"--network"}, description = {"Optional Path to network file to load."}, defaultValue = "D:/Work/MATSim Project/MATSim scenarios/montreal_1p/osm_network.xml.gz")
   private String networkFileLoc;
   
-  @Option(names = {"--ts"}, description = {"Optional Path to transit schedule file to load."}, defaultValue = "montreal_transit_schedules.xml.gz")
+  @Option(names = {"--ts"}, description = {"Optional Path to transit schedule file to load."}, defaultValue = "D:/Work/MATSim Project/MATSim scenarios/montreal_1p/osm_transit_schedules.xml.gz")
   private String tsFileLoc;
   
-  @Option(names = {"--tv"}, description = {"Optional Path to transit vehicle file to load."}, defaultValue = "montreal_transit_vehicles.xml.gz")
+  @Option(names = {"--tv"}, description = {"Optional Path to transit vehicle file to load."}, defaultValue = "D:/Work/MATSim Project/MATSim scenarios/montreal_1p/osm_transit_vehicles.xml")
   private String tvFileLoc;
   
-  @Option(names = {"--facilities"}, description = {"Optional Path to facilities file to load."}, defaultValue = "montreal_facilities.xml.gz")
+  @Option(names = {"--facilities"}, description = {"Optional Path to facilities file to load."}, defaultValue = "D:/Work/MATSim Project/MATSim scenarios/montreal_1p/osm_facilities.xml.gz")
   private String facilitiesFileLoc;
   
-  @Option(names = {"--iterations"}, description = {"Maximum number of iteration to simulate."}, defaultValue = "250") 
+  @Option(names = {"--iterations"}, description = {"Maximum number of iteration to simulate."}, defaultValue = "200") 
   private int maxIterations;
   
-  @Option(names = {"--household"}, description = {"Optional Path to household file to load."}, defaultValue = "montreal_households.xml.gz")
+  @Option(names = {"--household"}, description = {"Optional Path to household file to load."}, defaultValue = "D:/Work/MATSim Project/MATSim scenarios/montreal_1p/montreal_households.xml.gz")
   private String householdFileLoc;
   
-  @Option(names = {"--scale"}, description = {"Scale of simulation"}, defaultValue = "0.05")
+  @Option(names = {"--scale"}, description = {"Scale of simulation"}, defaultValue = "0.01")
   private Double scale;
   
-  @Option(names = {"--output"}, description = {"Result output directory"}, defaultValue = "output/")
+  @Option(names = {"--output"}, description = {"Result output directory"}, defaultValue = "D:/Work/MATSim Project/MATSim scenarios/montreal_1p/output2/")
   private String output;
   
-  @Option(names = {"--paramfile"}, description = {"Parameter file location"}, defaultValue = "paramReaderTrial1.csv")
+  @Option(names = {"--paramfile"}, description = {"Parameter file location"}, defaultValue = "D:/Work/MATSim Project/MATSim scenarios/montreal_1p/paramReaderTrial1_newData REsult.csv")
   private String paramFile;
   
   @Option(names = {"--thread"}, description = {"Number of thread"}, defaultValue = "40")

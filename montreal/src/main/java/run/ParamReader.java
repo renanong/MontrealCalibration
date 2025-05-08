@@ -303,44 +303,84 @@ public class ParamReader {
 		if(this.subPopulationName.size()!=0) {
 		for(String subPop:this.subPopulationName) {
 			if(!subPop.contains("GV")) {
-			configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("car").setMarginalUtilityOfTraveling(params.get(subPop+" "+AnalyticalModel.MarginalUtilityofTravelCarName));
-			configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("car").setMarginalUtilityOfDistance(params.get(subPop+" "+AnalyticalModel.MarginalUtilityofDistanceCarName));
-			configOut.planCalcScore().getOrCreateScoringParameters(subPop).setMarginalUtilityOfMoney(params.get(subPop+" "+AnalyticalModel.MarginalUtilityofMoneyName));
-			configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("car").setMonetaryDistanceRate(params.get(subPop+" "+AnalyticalModel.DistanceBasedMoneyCostCarName));
-			configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("pt").setMarginalUtilityOfTraveling(params.get(subPop+" "+AnalyticalModel.MarginalUtilityofTravelptName));
-			configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("pt").setMonetaryDistanceRate(params.get(subPop+" "+AnalyticalModel.MarginalUtilityOfDistancePtName));
-			configOut.planCalcScore().getOrCreateScoringParameters(subPop).setMarginalUtlOfWaitingPt_utils_hr(params.get(subPop+" "+AnalyticalModel.MarginalUtilityofWaitingName));
-			configOut.planCalcScore().getOrCreateScoringParameters(subPop).setUtilityOfLineSwitch(params.get(subPop+" "+AnalyticalModel.UtilityOfLineSwitchName));
-			configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("walk").setMarginalUtilityOfTraveling(params.get(subPop+" "+AnalyticalModel.MarginalUtilityOfWalkingName));
-			configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("walk").setMonetaryDistanceRate(params.get(subPop+" "+AnalyticalModel.DistanceBasedMoneyCostWalkName));
-			configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("pt").setConstant(params.get(subPop+" "+AnalyticalModel.ModeConstantPtname));
-			configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("car").setConstant(params.get(subPop+" "+AnalyticalModel.ModeConstantCarName));
-			configOut.planCalcScore().getOrCreateScoringParameters(subPop).setPerforming_utils_hr(params.get(subPop+" "+AnalyticalModel.MarginalUtilityofPerformName));
+				// --- CAR ---
+				configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("car").setMarginalUtilityOfTraveling(params.get(subPop + " " + AnalyticalModel.MarginalUtilityofTravelCarName));
+				configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("car").setMarginalUtilityOfDistance(params.get(subPop + " " + AnalyticalModel.MarginalUtilityofDistanceCarName));
+				configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("car").setMonetaryDistanceRate(params.get(subPop + " " + AnalyticalModel.DistanceBasedMoneyCostCarName));
+				configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("car").setConstant(params.get(subPop + " " + AnalyticalModel.ModeConstantCarName));
+
+				// --- PT ---
+				configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("pt").setMarginalUtilityOfTraveling(params.get(subPop + " " + AnalyticalModel.MarginalUtilityofTravelptName));
+				configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("pt").setMonetaryDistanceRate(params.get(subPop + " " + AnalyticalModel.MarginalUtilityOfDistancePtName));
+				configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("pt").setConstant(params.get(subPop + " " + AnalyticalModel.ModeConstantPtname));
+
+				// --- WALK ---
+				configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("walk").setMarginalUtilityOfTraveling(params.get(subPop + " " + AnalyticalModel.MarginalUtilityOfWalkingName));
+				configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("walk").setMonetaryDistanceRate(params.get(subPop + " " + AnalyticalModel.DistanceBasedMoneyCostWalkName));
+
+				// --- BIKE ---
+				configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("bike").setMarginalUtilityOfTraveling(params.get(subPop + " " + AnalyticalModel.MarginalUtilityOfTravelBikeName));
+				configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("bike").setMonetaryDistanceRate(params.get(subPop + " " + AnalyticalModel.DistanceBasedMoneyCostBikeName));
+				configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("bike").setConstant(params.get(subPop + " " + AnalyticalModel.ModeConstantBikeName));
+
+				// --- OTHER ---
+				configOut.planCalcScore().getOrCreateScoringParameters(subPop).setMarginalUtilityOfMoney(params.get(subPop + " " + AnalyticalModel.MarginalUtilityofMoneyName));
+				configOut.planCalcScore().getOrCreateScoringParameters(subPop).setMarginalUtlOfWaitingPt_utils_hr(params.get(subPop + " " + AnalyticalModel.MarginalUtilityofWaitingName));
+				configOut.planCalcScore().getOrCreateScoringParameters(subPop).setUtilityOfLineSwitch(params.get(subPop + " " + AnalyticalModel.UtilityOfLineSwitchName));
+				configOut.planCalcScore().getOrCreateScoringParameters(subPop).setPerforming_utils_hr(params.get(subPop + " " + AnalyticalModel.MarginalUtilityofPerformName));
+
+
 			
 			}else {
-				configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("car").setMarginalUtilityOfTraveling(params.get(subPop+" "+AnalyticalModel.MarginalUtilityofTravelCarName));
-				configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("car").setMarginalUtilityOfDistance(params.get(subPop+" "+AnalyticalModel.MarginalUtilityofDistanceCarName));
-				configOut.planCalcScore().getOrCreateScoringParameters(subPop).setMarginalUtilityOfMoney(params.get(subPop+" "+AnalyticalModel.MarginalUtilityofMoneyName));
-				configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("car").setMonetaryDistanceRate(params.get(subPop+" "+AnalyticalModel.DistanceBasedMoneyCostCarName));
-				configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("walk").setMarginalUtilityOfTraveling(params.get(subPop+" "+AnalyticalModel.MarginalUtilityOfWalkingName));
-				configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("walk").setMonetaryDistanceRate(params.get(subPop+" "+AnalyticalModel.DistanceBasedMoneyCostWalkName));
-				configOut.planCalcScore().getOrCreateScoringParameters(subPop).setPerforming_utils_hr(params.get(subPop+" "+AnalyticalModel.MarginalUtilityofPerformName));
+				// --- CAR ---
+				configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("car").setMarginalUtilityOfTraveling(params.get(subPop + " " + AnalyticalModel.MarginalUtilityofTravelCarName));
+				configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("car").setMarginalUtilityOfDistance(params.get(subPop + " " + AnalyticalModel.MarginalUtilityofDistanceCarName));
+				configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("car").setMonetaryDistanceRate(params.get(subPop + " " + AnalyticalModel.DistanceBasedMoneyCostCarName));
+
+				// --- WALK ---
+				configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("walk").setMarginalUtilityOfTraveling(params.get(subPop + " " + AnalyticalModel.MarginalUtilityOfWalkingName));
+				configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("walk").setMonetaryDistanceRate(params.get(subPop + " " + AnalyticalModel.DistanceBasedMoneyCostWalkName));
+
+				// --- BIKE ---
+				configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("bike").setMarginalUtilityOfTraveling(params.get(subPop + " " + AnalyticalModel.MarginalUtilityOfTravelBikeName));
+				configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("bike").setMonetaryDistanceRate(params.get(subPop + " " + AnalyticalModel.DistanceBasedMoneyCostBikeName));
+				configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("bike").setConstant(params.get(subPop + " " + AnalyticalModel.ModeConstantBikeName));
+
+				// --- OTHER ---
+				configOut.planCalcScore().getOrCreateScoringParameters(subPop).setMarginalUtilityOfMoney(params.get(subPop + " " + AnalyticalModel.MarginalUtilityofMoneyName));
+				configOut.planCalcScore().getOrCreateScoringParameters(subPop).setPerforming_utils_hr(params.get(subPop + " " + AnalyticalModel.MarginalUtilityofPerformName));
+
+
 			}
 		}
 		}else {
+			// --- CAR ---
 			configOut.planCalcScore().getOrCreateModeParams("car").setMarginalUtilityOfTraveling(params.get(AnalyticalModel.MarginalUtilityofTravelCarName));
 			configOut.planCalcScore().getOrCreateModeParams("car").setMarginalUtilityOfDistance(params.get(AnalyticalModel.MarginalUtilityofDistanceCarName));
-			configOut.planCalcScore().setMarginalUtilityOfMoney(params.get(AnalyticalModel.MarginalUtilityofMoneyName));
 			configOut.planCalcScore().getOrCreateModeParams("car").setMonetaryDistanceRate(params.get(AnalyticalModel.DistanceBasedMoneyCostCarName));
+			configOut.planCalcScore().getOrCreateModeParams("car").setConstant(params.get(AnalyticalModel.ModeConstantCarName));
+
+			// --- PT ---
 			configOut.planCalcScore().getOrCreateModeParams("pt").setMarginalUtilityOfTraveling(params.get(AnalyticalModel.MarginalUtilityofTravelptName));
 			configOut.planCalcScore().getOrCreateModeParams("pt").setMonetaryDistanceRate(params.get(AnalyticalModel.MarginalUtilityOfDistancePtName));
-			configOut.planCalcScore().setMarginalUtlOfWaitingPt_utils_hr(params.get(AnalyticalModel.MarginalUtilityofWaitingName));
-			configOut.planCalcScore().setUtilityOfLineSwitch(params.get(AnalyticalModel.UtilityOfLineSwitchName));
+			configOut.planCalcScore().getOrCreateModeParams("pt").setConstant(params.get(AnalyticalModel.ModeConstantPtname));
+
+			// --- WALK ---
 			configOut.planCalcScore().getOrCreateModeParams("walk").setMarginalUtilityOfTraveling(params.get(AnalyticalModel.MarginalUtilityOfWalkingName));
 			configOut.planCalcScore().getOrCreateModeParams("walk").setMonetaryDistanceRate(params.get(AnalyticalModel.DistanceBasedMoneyCostWalkName));
-			configOut.planCalcScore().getOrCreateModeParams("pt").setConstant(params.get(AnalyticalModel.ModeConstantPtname));
-			configOut.planCalcScore().getOrCreateModeParams("car").setConstant(params.get(AnalyticalModel.ModeConstantCarName));
+
+			// --- BIKE ---
+			configOut.planCalcScore().getOrCreateModeParams("bike").setMarginalUtilityOfTraveling(params.get(AnalyticalModel.MarginalUtilityOfTravelBikeName));
+			configOut.planCalcScore().getOrCreateModeParams("bike").setMonetaryDistanceRate(params.get(AnalyticalModel.DistanceBasedMoneyCostBikeName));
+			configOut.planCalcScore().getOrCreateModeParams("bike").setConstant(params.get(AnalyticalModel.ModeConstantBikeName));
+
+			// --- OTHER ---
+			configOut.planCalcScore().setMarginalUtilityOfMoney(params.get(AnalyticalModel.MarginalUtilityofMoneyName));
+			configOut.planCalcScore().setMarginalUtlOfWaitingPt_utils_hr(params.get(AnalyticalModel.MarginalUtilityofWaitingName));
+			configOut.planCalcScore().setUtilityOfLineSwitch(params.get(AnalyticalModel.UtilityOfLineSwitchName));
 			configOut.planCalcScore().setPerforming_utils_hr(params.get(AnalyticalModel.MarginalUtilityofPerformName));
+
+
 		}
 		if(params.containsKey(AnalyticalModel.CapacityMultiplierName)) {
 			configOut.qsim().setFlowCapFactor(params.get(AnalyticalModel.CapacityMultiplierName));
@@ -358,19 +398,32 @@ public class ParamReader {
 	
 	public void setDefaultParams(Config configOut, String subPop) {
 		LinkedHashMap<String,Double> params=this.ScaleUp(this.DefaultParam);
-		configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("car").setMarginalUtilityOfTraveling(params.get(AnalyticalModel.MarginalUtilityofTravelCarName));
-		configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("car").setMarginalUtilityOfDistance(params.get(AnalyticalModel.MarginalUtilityofDistanceCarName));
-		configOut.planCalcScore().getOrCreateScoringParameters(subPop).setMarginalUtilityOfMoney(params.get(AnalyticalModel.MarginalUtilityofMoneyName));
-		configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("car").setMonetaryDistanceRate(params.get(AnalyticalModel.DistanceBasedMoneyCostCarName));
-		configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("pt").setMarginalUtilityOfTraveling(params.get(AnalyticalModel.MarginalUtilityofTravelptName));
-		configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("pt").setMonetaryDistanceRate(params.get(AnalyticalModel.MarginalUtilityOfDistancePtName));
-		configOut.planCalcScore().getOrCreateScoringParameters(subPop).setMarginalUtlOfWaitingPt_utils_hr(params.get(AnalyticalModel.MarginalUtilityofWaitingName));
-		configOut.planCalcScore().getOrCreateScoringParameters(subPop).setUtilityOfLineSwitch(params.get(AnalyticalModel.UtilityOfLineSwitchName));
-		configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("walk").setMarginalUtilityOfTraveling(params.get(AnalyticalModel.MarginalUtilityOfWalkingName));
-		configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("walk").setMonetaryDistanceRate(params.get(AnalyticalModel.DistanceBasedMoneyCostWalkName));
-		configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("pt").setConstant(params.get(AnalyticalModel.ModeConstantPtname));
-		configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("car").setConstant(params.get(AnalyticalModel.ModeConstantCarName));
-		configOut.planCalcScore().getOrCreateScoringParameters(subPop).setPerforming_utils_hr(params.get(AnalyticalModel.MarginalUtilityofPerformName));
+		// --- CAR ---
+	    configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("car").setMarginalUtilityOfTraveling(params.get(AnalyticalModel.MarginalUtilityofTravelCarName));
+	    configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("car").setMarginalUtilityOfDistance(params.get(AnalyticalModel.MarginalUtilityofDistanceCarName));
+	    configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("car").setMonetaryDistanceRate(params.get(AnalyticalModel.DistanceBasedMoneyCostCarName));
+	    configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("car").setConstant(params.get(AnalyticalModel.ModeConstantCarName));
+
+	    // --- PT ---
+	    configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("pt").setMarginalUtilityOfTraveling(params.get(AnalyticalModel.MarginalUtilityofTravelptName));
+	    configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("pt").setMonetaryDistanceRate(params.get(AnalyticalModel.MarginalUtilityOfDistancePtName));
+	    configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("pt").setConstant(params.get(AnalyticalModel.ModeConstantPtname));
+
+	    // --- WALK ---
+	    configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("walk").setMarginalUtilityOfTraveling(params.get(AnalyticalModel.MarginalUtilityOfWalkingName));
+	    configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("walk").setMonetaryDistanceRate(params.get(AnalyticalModel.DistanceBasedMoneyCostWalkName));
+
+	    // --- BIKE ---
+	    configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("bike").setMarginalUtilityOfTraveling(params.get(AnalyticalModel.MarginalUtilityOfTravelBikeName));
+	    configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("bike").setMonetaryDistanceRate(params.get(AnalyticalModel.DistanceBasedMoneyCostBikeName));
+	    configOut.planCalcScore().getOrCreateScoringParameters(subPop).getOrCreateModeParams("bike").setConstant(params.get(AnalyticalModel.ModeConstantBikeName));
+
+	    // --- OTHER ---
+	    configOut.planCalcScore().getOrCreateScoringParameters(subPop).setMarginalUtilityOfMoney(params.get(AnalyticalModel.MarginalUtilityofMoneyName));
+	    configOut.planCalcScore().getOrCreateScoringParameters(subPop).setMarginalUtlOfWaitingPt_utils_hr(params.get(AnalyticalModel.MarginalUtilityofWaitingName));
+	    configOut.planCalcScore().getOrCreateScoringParameters(subPop).setUtilityOfLineSwitch(params.get(AnalyticalModel.UtilityOfLineSwitchName));
+	    configOut.planCalcScore().getOrCreateScoringParameters(subPop).setPerforming_utils_hr(params.get(AnalyticalModel.MarginalUtilityofPerformName));
+
 	}
 	
 	
